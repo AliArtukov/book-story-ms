@@ -1,0 +1,20 @@
+spring:
+  datasource:
+    url: ${JDBC_DATABASE_URL}
+    username: ${JDBC_DATABASE_USERNAME}
+    password: ${JDBC_DATABASE_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      connection-timeout: 30000
+      maximum-pool-size: 10
+
+  docker:
+    compose:
+      lifecycle-management: start-only
+
+  sql:
+    init:
+      mode: always
+
+springdoc:
+  pathsToMatch: /api/**
